@@ -11,8 +11,6 @@ export default class {
         return "";
     }
 
-    async reRender() {
-        document.querySelector("#app").innerHTML = await this.render();
-        this.after_render();
+    async after_render() {
     }
 }
