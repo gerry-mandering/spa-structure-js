@@ -8,26 +8,30 @@ export default class extends AbstractView {
 
     async render() {
         return `
-            <main class="flex flex-col items-center justify-center h-screen bg-gray-100 dark:bg-gray-900 relative">
+            <main class="flex flex-col items-center justify-center h-screen bg-gray-100 relative">
+            
+                <!-- Language Dropdown -->
                 <div class="absolute top-3 right-3 w-32 z-10">
-                    <div class="flex justify-between items-center bg-gray-200 dark:bg-gray-800 px-4 py-2 rounded-md">
-                        <span class="text-gray-800 dark:text-gray-200">Language</span>
+                    <button id="dropdownButton" class="flex justify-between items-center bg-gray-200 px-4 py-2 rounded-md">
+                        <span class="text-gray-800">Language</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="h-4 w-4 text-gray-800 dark:text-gray-200">
+                             class="h-5 w-5 ml-1 text-gray-800">
                             <path d="M12 5v14"></path>
                             <path d="m19 12-7 7-7-7"></path>
                         </svg>
-                    </div>
-                    <div class="mt-2 bg-white dark:bg-gray-800 rounded-md shadow-lg overflow-hidden">
-                        <div><a class="block px-4 py-2 text-gray-800 dark:text-gray-200" href="#">English</a></div>
-                        <div><a class="block px-4 py-2 text-gray-800 dark:text-gray-200" href="#">Korean</a></div>
-                        <div><a class="block px-4 py-2 text-gray-800 dark:text-gray-200" href="#">Chinese</a></div>
+                    </button>
+                    <div id="dropdown" class="hidden mt-2 bg-white rounded-md shadow-lg overflow-hidden">
+                        <div><a class="block px-4 py-2 text-gray-800" href="#">English</a></div>
+                        <div><a class="block px-4 py-2 text-gray-800" href="#">Korean</a></div>
+                        <div><a class="block px-4 py-2 text-gray-800" href="#">Chinese</a></div>
                     </div>
                 </div>
+                
+                <!-- Game Mode Selection -->
                 <div>
-                    <div class="w-full flex justify-center items-center p-4"><h1 class="text-4xl font-bold dark:text-white">Choose
-                        Your Pong Game Mode</h1>
+                    <div class="w-full flex justify-center items-center p-4">
+                        <h1 class="text-4xl font-bold">Choose Your Pong Game Mode</h1>
                     </div>
                     <div class="flex flex-row gap-8 mt-8">
                         <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-48" data-v0-t="card">
@@ -42,49 +46,10 @@ export default class extends AbstractView {
                                     <rect width="20" height="12" x="2" y="6" rx="2"></rect>
                                 </svg>
                                 <h3 class="tracking-tight text-2xl font-bold mb-2">1 VS 1</h3>
-                                <button id="modal-button" class="bg-rose-500 text-white rounded-md px-4 py-2 hover:bg-rose-700 transition">
-   Click to Open modal
-</button>
-
-<div id="modelConfirm" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 ">
-    <div class="relative top-40 mx-auto shadow-xl rounded-md bg-white max-w-md">
-
-        <div class="flex justify-end p-2">
-            <button type="button"
-                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </button>
-        </div>
-
-        <div class="p-6 pt-0 text-center">
-            <svg class="w-20 h-20 text-red-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <h3 class="text-xl font-normal text-gray-500 mt-5 mb-6">Are you sure you want to delete this user?</h3>
-            <a href="#"
-                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-base inline-flex items-center px-3 py-2.5 text-center mr-2">
-                Yes, I'm sure
-            </a>
-            <a href="#"
-                class="text-gray-900 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-cyan-200 border border-gray-200 font-medium inline-flex items-center rounded-lg text-base px-3 py-2.5 text-center"
-                data-modal-toggle="delete-user-modal">
-                No, cancel
-            </a>
-        </div>
-
-    </div>
-</div>
-                                <p class="text-sm text-muted-foreground text-center">Play 1 vs 1 game of Pong</p><a
-                                    class="mt-4 inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                                    href="/game">
-                                Play
-                            </a>
+                                <p class="text-sm text-muted-foreground text-center">Play 1 vs 1 game of Pong</p>
+                                <button class="mt-4 inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-800/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50" onclick="openModal('modelConfirm')">
+                                    Play
+                                </button>
                             </div>
                         </div>
                         <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-48" data-v0-t="card">
@@ -99,11 +64,10 @@ export default class extends AbstractView {
                                     <rect width="20" height="12" x="2" y="6" rx="2"></rect>
                                 </svg>
                                 <h3 class="tracking-tight text-2xl font-bold mb-2">2 VS 2</h3>
-                                <p class="text-sm text-muted-foreground text-center">Play 2 vs 2 game of Pong</p><a
-                                    class="mt-4 inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                                    href="/game">
-                                Play
-                            </a>
+                                <p class="text-sm text-muted-foreground text-center">Play 2 vs 2 game of Pong</p>
+                                <button class="mt-4 inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-800/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50" onclick="openModal('modelConfirm')">
+                                    Play
+                                </button>
                             </div>
                         </div>
                         <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-48" data-v0-t="card">
@@ -119,11 +83,10 @@ export default class extends AbstractView {
                                     <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
                                 </svg>
                                 <h3 class="tracking-tight text-2xl font-bold mb-2">Tournament</h3>
-                                <p class="text-sm text-muted-foreground text-center">Compete in a Pong tournament</p><a
-                                    class="mt-4 inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                                    href="/game">
-                                Play
-                            </a>
+                                <p class="text-sm text-muted-foreground text-center">Compete in a Pong tournament</p>
+                                <button class="mt-4 inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-800/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50" onclick="openModal('modelConfirm')">
+                                    Play
+                                </button>
                             </div>
                         </div>
                         <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-48" data-v0-t="card">
@@ -135,41 +98,100 @@ export default class extends AbstractView {
                                     <path d="m13 12-3 5h4l-3 5"></path>
                                 </svg>
                                 <h3 class="tracking-tight text-2xl font-bold mb-2">AI</h3>
-                                <p class="text-sm text-muted-foreground text-center">Human vs AI Please beat the Machine!</p><a
-                                    class="mt-4 inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                                    href="/game">
-                                Play
-                            </a>
+                                <p class="text-sm text-muted-foreground text-center">Human vs AI Please beat the Machine!</p>
+                                <button class="mt-4 inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-800/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50" onclick="openModal('modelConfirm')">
+                                    Play
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Game Customization Modal -->
+                <div id="modelConfirm" class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                    <div class="relative bg-white rounded-lg px-10 py-14 max-w-md mx-auto">
+                        <button onclick="closeModal('modelConfirm')" class="absolute top-0 right-0 mt-6 mr-6 text-gray-700 hover:text-gray-500">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                        <div class="text-3xl font-bold mb-6">Game Customization</div>
+                        <div>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="nickname">
+                                    Nickname
+                                </label>
+                                <input
+                                        class="flex h-10 border-input bg-background text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="nickname"
+                                />
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="speed-up">
+                                    Speed Up
+                                </label>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input id="speed-up" type="checkbox" value="" class="sr-only peer">
+                                    <div class="w-12 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                </label>
+                            </div>
+                            <div class="mb-7">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="fancy-ball">
+                                    Fancy Ball
+                                </label>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input id="fancy-ball" type="checkbox" value="" class="sr-only peer">
+                                    <div class="w-12 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <button onclick="closeModal('modelConfirm')"
+                                    class="ring-offset-background focus-visible:ring-offset-2 h-10 inline-flex items-center justify-center rounded-md bg-gray-400 px-7 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-600 disabled:pointer-events-none disabled:opacity-50">
+                                Cancel
+                            </button>
+                            <button onclick="closeModal('modelConfirm')"
+                                    class="ring-offset-background focus-visible:ring-offset-2 h-10 inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-800/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50">
+                                Start Game
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
             </main>
         `;
     }
 
-    // Close all modals when press ESC
     async after_render() {
-        window.openModal = function(modalId) {
-            document.getElementById(modalId).style.display = 'block'
-            document.getElementsByTagName('body')[0].classList.add('overflow-y-hidden')
+        // Clear modal data when close
+        const clearModal = function (modalId) {
+            document.getElementById('nickname').value = '';
+            document.getElementById('speed-up').checked = false;
+            document.getElementById('fancy-ball').checked = false;
         }
 
-        window.closeModal = function(modalId) {
+        window.openModal = function (modalId) {
+            document.getElementById(modalId).style.display = 'flex'
+            document.getElementsByTagName('body')[0].classList.add('overflow-y-hidden');
+        }
+
+        window.closeModal = function (modalId) {
             document.getElementById(modalId).style.display = 'none'
-            document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden')
+            document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden');
+            clearModal(modalId);
         }
 
-        document.getElementById("modal-button").addEventListener ("click",  () => {
-            console.log("clicked");
-            openModal('modelConfirm');
-        });
-
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
+        // Close all modals when press ESC
+        document.onkeydown = function (event) {
+            event = event || window.event;
+            if (event.keyCode === 27) {
                 closeModal('modelConfirm');
             }
+        };
+
+        // dropdown menu
+        document.getElementById('dropdownButton').addEventListener('click', function() {
+            document.getElementById('dropdown').classList.toggle('hidden');
         });
     }
-
 }
