@@ -42,9 +42,12 @@ window.addEventListener("popstate", router);
 
 document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", e => {
-        if (e.target.matches("[data-link]")) {
+        // find the closest parent element with a data-link attribute
+        const targetElement = e.target.closest("[data-link]");
+
+        if (targetElement) {
             e.preventDefault();
-            navigateTo(e.target.href);
+            navigateTo(targetElement.href);
         }
     });
 

@@ -20,13 +20,12 @@ export default class extends AbstractView {
                             <a class="text-blue-500 hover:text-blue-700" href="#">privacy policy</a>.
                         </p></div>
                     <div class="space-y-4">
-                        <a href="/" class="nav__link" data-link>
-                            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-12 px-4 py-2 w-full bg-black text-white">
-                                <div class="flex items-center justify-center text-base">
-                                    <img class="mr-2" src="/static/img/42_logo.svg" alt="42_logo" width="24" height="24">
-                                    Login with 42 Intra
-                                </div>
-                            </button>
+                        <a data-link href="/"
+                            class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-12 px-4 py-2 w-full bg-black text-white">
+                            <div class="flex items-center justify-center text-base">
+                                <img class="mr-2" src="/static/img/42_logo.svg" alt="42_logo" width="24" height="24">
+                                Login with 42 Intra
+                            </div>
                         </a>
                     </div>
                 </div>
