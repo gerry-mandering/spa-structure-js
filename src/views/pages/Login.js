@@ -9,11 +9,11 @@ export default class extends AbstractView {
     async render() {
         return `
             <div class="bg-gray-100 min-h-screen flex items-center justify-center">
-                <div class="max-w-sm rounded-lg shadow-lg bg-white p-6 space-y-6 border border-gray-200 dark:border-gray-700">
+                <div class="max-w-sm rounded-lg shadow-lg bg-white p-6 space-y-6 border border-gray-200">
                     <div class="space-y-2 text-center"><h1 class="text-3xl font-bold">
                         Login
                     </h1>
-                        <p class="text-zinc-500 dark:text-zinc-400">
+                        <p class="text-zinc-500">
                             By logging in, you accept our
                             <a class="text-blue-500 hover:text-blue-700" href="#">terms</a>
                             and

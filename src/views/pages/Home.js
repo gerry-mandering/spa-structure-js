@@ -164,22 +164,25 @@ export default class extends AbstractView {
     }
 
     async after_render() {
-        // Clear modal data when close
-        const clearModal = function (modalId) {
-            document.getElementById('nickname').value = '';
-            document.getElementById('speed-up').checked = false;
-            document.getElementById('fancy-ball').checked = false;
-        }
 
+        // Open modal
         window.openModal = function (modalId) {
             document.getElementById(modalId).style.display = 'flex'
             document.getElementsByTagName('body')[0].classList.add('overflow-y-hidden');
         }
 
+        // Close modal
         window.closeModal = function (modalId) {
             document.getElementById(modalId).style.display = 'none'
             document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden');
             clearModal(modalId);
+        }
+
+        // Clear modal input data when close
+        const clearModal = function (modalId) {
+            document.getElementById('nickname').value = '';
+            document.getElementById('speed-up').checked = false;
+            document.getElementById('fancy-ball').checked = false;
         }
 
         // Close all modals when press ESC
@@ -190,7 +193,7 @@ export default class extends AbstractView {
             }
         };
 
-        // dropdown menu
+        // Language dropdown
         document.getElementById('dropdownButton').addEventListener('click', function() {
             document.getElementById('dropdown').classList.toggle('hidden');
         });
